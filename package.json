@@ -7,7 +7,9 @@
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Formatters"],
+  "categories": [
+    "Formatters"
+  ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
@@ -21,16 +23,28 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "vscode:prepublish": "npm run build"
+    "vscode:prepublish": "npm run build",
+    "test": "node ./dist/tests/runTest.js",
+    "pretest": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.9.1",
+    "@types/postcss-sorting": "^8.0.2",
     "@types/vscode": "^1.105.0",
     "@vscode/test-electron": "^2.5.2",
-    "typescript": "^5.9.3",
-    "vscode": "^1.1.37"
+    "glob": "^11.0.3",
+    "mocha": "^11.7.4",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "postcss": "^8.5.6",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-discard-duplicates": "^7.0.2",
+    "postcss-sorting": "^9.1.0"
   }
 }

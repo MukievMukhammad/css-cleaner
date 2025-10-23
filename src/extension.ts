@@ -1,29 +1,97 @@
 import * as vscode from 'vscode';
+import { cleanCSS, getCleaningStats } from './cssCleaner';
 
-// Функция активации - вызывается при загрузке расширения
+/**
+ * Extension activation function
+ * Called when the extension is first activated
+ */
 export function activate(context: vscode.ExtensionContext) {
-    console.log('CSS Cleaner активирован!');
+    console.log('CSS Cleaner is now active!');
 
-    // Регистрация команды
-    let disposable = vscode.commands.registerCommand('css-cleaner.cleanCSS', () => {
-        // Получаем активный редактор
-        const editor = vscode.window.activeTextEditor;
-        
-        if (!editor) {
-            vscode.window.showErrorMessage('Нет открытого файла');
-            return;
+    // Register the clean CSS command
+    const cleanCommand = vscode.commands.registerCommand(
+        'css-cleaner.cleanCSS',
+        async () => {
+            const editor = vscode.window.activeTextEditor;
+
+            if (!editor) {
+                vscode.window.showErrorMessage('No file is open');
+                return;
+            }
+
+            const document = editor.document;
+            
+            // Check if the file is a CSS file
+            if (document.languageId !== 'css') {
+                vscode.window.showWarningMessage(
+                    'This file is not a CSS file'
+                );
+                return;
+            }
+
+            try {
+                const originalCSS = document.getText();
+                
+                // Show progress notification
+                await vscode.window.withProgress(
+                    {
+                        location: vscode.ProgressLocation.Notification,
+                        title: 'Cleaning CSS...',
+                        cancellable: false
+                    },
+                    async (progress) => {
+                        progress.report({ increment: 20, message: 'Analyzing...' });
+                        
+                        const stats = await getCleaningStats(originalCSS);
+                        
+                        progress.report({ increment: 40, message: 'Cleaning...' });
+                        
+                        const cleanedCSS = await cleanCSS(originalCSS, {
+                            // TODO: Add custom configurations
+                            removeDuplicatedProperties: true,
+                            removeDuplicatedValues: true,
+                            sortProperties: true,
+                            prettify: true
+                        });
+                        
+                        progress.report({ increment: 30, message: 'Applying changes...' });
+                        
+                        // Replace the entire document text
+                        const fullRange = new vscode.Range(
+                            document.positionAt(0),
+                            document.positionAt(originalCSS.length)
+                        );
+                        
+                        await editor.edit((editBuilder) => {
+                            editBuilder.replace(fullRange, cleanedCSS);
+                        });
+                        
+                        progress.report({ increment: 10, message: 'Done!' });
+                        
+                        // Show detailed statistics
+                        const message = [
+                            'CSS successfully cleaned!',
+                            `• Duplicate selectors removed: ${stats.duplicatedSelectorsRemoved}`,
+                            `• Duplicate properties removed: ${stats.duplicatedPropertiesRemoved}`,
+                            `• Size reduction: ${stats.percentReduction.toFixed(1)}%`
+                        ].join('\n');
+                        
+                        vscode.window.showInformationMessage(message);
+                    }
+                );
+            } catch (error) {
+                vscode.window.showErrorMessage(
+                    `CSS cleaning error: ${error}`
+                );
+            }
         }
+    );
 
-        // Получаем текст документа
-        const document = editor.document;
-        const text = document.getText();
-
-        // Здесь будет ваша логика очистки CSS
-        vscode.window.showInformationMessage('CSS Cleaner работает!');
-    });
-
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(cleanCommand);
 }
 
-// Функция деактивации - вызывается при выгрузке
+/**
+ * Extension deactivation function
+ * Called when the extension is deactivated
+ */
 export function deactivate() {}
