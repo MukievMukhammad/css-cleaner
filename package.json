@@ -1,0 +1,36 @@
+{
+  "name": "css-cleaner",
+  "displayName": "CSS Cleaner",
+  "description": "Automatically merge CSS selectors and remove duplicates",
+  "version": "1.0.0",
+  "publisher": "MukievMkhammad",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Formatters"],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "css-cleaner.cleanCSS",
+        "title": "CSS Cleaner: Clean and Merge Selectors"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "vscode:prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "@types/vscode": "^1.105.0",
+    "@vscode/test-electron": "^2.5.2",
+    "typescript": "^5.9.3",
+    "vscode": "^1.1.37"
+  }
+}
