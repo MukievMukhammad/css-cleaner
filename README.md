@@ -5,76 +5,59 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: In Development](https://img.shields.io/badge/Status-In%20Development-orange.svg)]()
 
-## Предназначение пакета
+## Purpose
 
-CSS Cleaner — это расширение для Visual Studio Code, которое автоматически оптимизирует CSS-код в вашем проекте.
+CSS Cleaner is an extension for Visual Studio Code that automatically optimizes CSS code in your project.
 
-### Что планируется
+### Features
 
-- 🔄 Удаление дублирующихся CSS-правил
-- 🔄 Объединение разрозненных определений одинаковых селекторов
-- 🔄 Поддержка файлов `*.css`
-- 🔄 Поддержка `<style>` секций в `*.vue` файлах
+- ✅ Removes duplicate CSS rules
+- ✅ Merges scattered definitions of identical selectors
+- ✅ Supports `*.css` files
+- 🔄 Planned support for `<style>` sections in `*.vue` files
 
-### Возможно в будущем
+### Future Roadmap
 
-- 🎯 Поддержка React компонентов (`*.jsx`, `*.tsx`)
-- 🎯 Поддержка Angular компонентов (`*.component.ts`)
-- 🎯 Поддержка Svelte компонентов (`*.svelte`)
-<!-- - 🎯 Настраиваемые правила оптимизации -->
+- 🎯 Support for React components (`*.jsx`, `*.tsx`)
+- 🎯 Support for Angular components (`*.component.ts`)
+- 🎯 Support for Svelte components (`*.svelte`)
+<!-- - 🎯 Customizable optimization rules planned -->
 
-<!-- ## 🚀 Установка
+## 🚀 Development Installation
 
-> **Примечание:** Расширение находится в разработке и пока не опубликовано в VS Code Marketplace.
+Clone the repository:
 
-### Разработка локально
-
-Клонировать репозиторий
 ``` bash
 git clone https://github.com/your-username/css-cleaner.git
 cd css-cleaner
 ```
 
-Установить зависимости
+Install dependencies:
 ```bash
 npm install
 ```
-Собрать проект
+Build the project:
 ```bash
 npm run build
 ```
-Запустить в режиме разработки
+Start development mode:
 ```bash
 npm run dev
-``` -->
+```
 
-## Статус разработки
+## License
 
-Проект находится на **начальной стадии разработки**. Базовая структура проекта создана, ведется работа над основной функциональностью.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-### Roadmap
+## Author
 
-- [ ] Реализация CSS парсера
-- [ ] Логика объединения селекторов
-- [ ] Удаление дублирующихся правил
-- [ ] Поддержка `.css` файлов
-- [ ] Поддержка `.vue` файлов
-- [ ] Тестирование
-- [ ] Публикация в VS Code Marketplace
+**Mukhammad Mukiev**  
+GitHub: [@MukievMukhammad](https://github.com/MukievMukhammad)
 
-## Лицензия
+## Contact
 
-Этот проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).
-
-## Автор
-
-**Ваше имя**
-- GitHub: [@MukievMukhammad](https://github.com/MukievMukhammad)
-
-## Связь
-
-Если у вас есть вопросы или предложения, создайте [Issue](https://github.com/MukievMukhammad/css-cleaner/issues) в репозитории.
+If you have questions or suggestions, please create an [Issue](https://github.com/MukievMukhammad/css-cleaner/issues) in the repository.
 
 ---
 
-⭐ Если проект вам понравился, поставьте звезду на GitHub!
+⭐ If you like this project, please give it a star on GitHub!
