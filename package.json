@@ -11,7 +11,7 @@
     "Formatters"
   ],
   "activationEvents": [],
-  "main": "./dist/extension.js",
+  "main": "./dist/src/extension.js",
   "contributes": {
     "commands": [
       {
@@ -44,7 +44,6 @@
   "dependencies": {
     "postcss": "^8.5.6",
     "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-discard-duplicates": "^7.0.2",
     "postcss-sorting": "^9.1.0"
   }
 }

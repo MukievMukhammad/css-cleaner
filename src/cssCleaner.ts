@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 import combineDuplicatedSelectors from 'postcss-combine-duplicated-selectors';
-import discardDuplicates from 'postcss-discard-duplicates';
+import { removeDuplicateProperties } from './plugins/removeDuplicateProperties';
 import sorting from 'postcss-sorting';
 import prettier from 'prettier';
 
@@ -46,7 +46,9 @@ export async function cleanCSS(
 
         // 2. Remove duplicate properties within a single selector
         // (keeps only the last occurrence)
-        plugins.push(discardDuplicates());
+        if (removeDuplicatedProperties) {
+            plugins.push(removeDuplicateProperties());
+        }
 
         // 3. Sort properties
         if (sortProperties) {
