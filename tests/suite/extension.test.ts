@@ -66,7 +66,7 @@ suite('CSS Cleaner Test Suite', () => {
 
     test('Должен возвращать статистику очистки', async () => {
         const css = `
-            .button { color: red; }
+            .button { color: red; color: green; }
             .button { padding: 10px; }
         `;
         
@@ -74,8 +74,8 @@ suite('CSS Cleaner Test Suite', () => {
         
         assert.ok(stats.originalSize > 0);
         assert.ok(stats.cleanedSize > 0);
-        assert.ok(stats.duplicatedPropertiesRemoved > 0);
         assert.ok(stats.duplicatedSelectorsRemoved > 0);
+        assert.ok(stats.duplicatedPropertiesRemoved > 0);
         assert.ok(stats.cleanedSize < stats.originalSize);
     });
 
