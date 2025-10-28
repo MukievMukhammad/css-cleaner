@@ -1,9 +1,9 @@
 {
-  "name": "css-cleaner",
-  "displayName": "CSS Cleaner",
+  "name": "css-cleaner-panther",
+  "displayName": "CSS Cleaner Panther",
   "description": "Automatically merge CSS selectors and remove duplicates",
-  "version": "1.0.0",
-  "publisher": "MukievMkhammad",
+  "version": "1.0.1",
+  "publisher": "MukievMukhammad",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -30,11 +30,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "icon": "images/icon.png",
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.9.1",
     "@types/postcss-sorting": "^8.0.2",
-    "@types/vscode": "^1.105.0",
+    "@types/vscode": "^1.80.0",
     "@vscode/test-electron": "^2.5.2",
     "glob": "^11.0.3",
     "mocha": "^11.7.4",
@@ -45,5 +46,9 @@
     "postcss": "^8.5.6",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-sorting": "^9.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MukievMukhammad/css-cleaner"
   }
 }

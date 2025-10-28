@@ -1,4 +1,4 @@
-# CSS Cleaner
+# CSS Cleaner (Beta)
 
 > VS Code extension for automatic CSS cleanup and optimization
 
@@ -16,12 +16,20 @@ CSS Cleaner is an extension for Visual Studio Code that automatically optimizes 
 - ✅ Supports `*.css` files
 - 🔄 Planned support for `<style>` sections in `*.vue` files
 
+### Usage
+
+Press: ctrl + shift + P
+
+then type: 
+>CSS Cleaner: Clean and Merge Selectors
+
 ### Future Roadmap
 
-- 🎯 Support for React components (`*.jsx`, `*.tsx`)
-- 🎯 Support for Angular components (`*.component.ts`)
-- 🎯 Support for Svelte components (`*.svelte`)
-<!-- - 🎯 Customizable optimization rules planned -->
+- Support for React components (`*.jsx`, `*.tsx`)
+- Support for Angular components (`*.component.ts`)
+- Support for Svelte components (`*.svelte`)
+- A /removed/ folder with all removed assets
+- A JSON report (assets-cleaner-report.json) for transparency and review
 
 ## 🚀 Development Installation
 
